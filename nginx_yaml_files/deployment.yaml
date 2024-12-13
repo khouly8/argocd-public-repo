@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment         # Name of the deployment
+  labels:
+    app: nginx                   # Label for identifying the app
+spec:
+  replicas: 1                    # Number of pod replicas
+  selector:
+    matchLabels:
+      app: nginx                 # Pods must match this label
+  template:                      # Template for the pod definition
+    metadata:
+      labels:
+        app: nginx               # Label applied to the pod
+    spec:
+      containers:
+        - name: nginx            # Name of the container
+          image: nginx           # NGINX image (you can specify a version)
